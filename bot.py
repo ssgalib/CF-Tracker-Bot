@@ -119,6 +119,9 @@ async def slash_add(interaction: discord.Interaction, handle: str):
     if not cf.handle_exists(handle):
         await interaction.followup.send(f"❌ Handle `{handle}` not found on Codeforces.")
         return
+    server = db.get_server(interaction.guild_id)
+    if not server or not server["channel_id"]:
+        db.set_channel(interaction.guild_id, interaction.channel_id)
     success = db.add_handle(interaction.guild_id, handle, interaction.user.id)
     if success:
         await interaction.followup.send(f"✅ Added `{handle}` to tracking list.")
@@ -131,6 +134,9 @@ async def prefix_add(ctx, handle: str):
         if not cf.handle_exists(handle):
             await ctx.send(f"❌ Handle `{handle}` not found on Codeforces.")
             return
+        server = db.get_server(ctx.guild.id)
+        if not server or not server["channel_id"]:
+            db.set_channel(ctx.guild.id, ctx.channel.id)
         success = db.add_handle(ctx.guild.id, handle, ctx.author.id)
         if success:
             await ctx.send(f"✅ Added `{handle}` to tracking list.")
