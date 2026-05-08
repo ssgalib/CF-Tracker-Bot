@@ -26,7 +26,7 @@ All commands also work with the `!` prefix (e.g. `!add tourist`).
 
 Click the link below to add CF Tracker Bot to your Discord server:
 
-[**Invite CF Tracker Bot**](https://discord.com/oauth2/authorize?client_id=1562250829002838056&permissions=85056&scope=bot+applications.commands)
+[**Invite CF Tracker Bot**](https://discord.com/oauth2/authorize?client_id=1502250829002838056&permissions=84992&scope=bot+applications.commands)
 
 After adding the bot, run these commands to get started:
 ```
